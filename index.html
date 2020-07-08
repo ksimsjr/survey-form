@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function submitToAPI(e) {
+            e.preventDefault();
+            var URL = "https://ocpix38lvl.execute-api.us-east-2.amazonaws.com/prod/survey-email";
+
+
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var siteObj = document.getElementById("site-objective").value;
+            var siteAddr = document.getElementById("site-addr").value;
+            var deadline = document.getElementById("deadline").value;
+            var numberOfPages = document.getElementById("pages").value;
+            var haveLogo = document.querySelector('input[name="survey-form-logo"]:checked').value;
+            var needHost = document.querySelector('input[name="survey-form-host"]:checked').value;
+            var currHost = document.getElementById("curr-host").value;
+            var useExistSite = document.querySelector('input[name="survey-form-ex_site"]:checked').value;
+            var siteImpress1 = document.getElementById("survey-form-impress1").checked;
+            var siteImpress2 = document.getElementById("survey-form-impress2").checked;
+            var siteImpress3 = document.getElementById("survey-form-impress3").checked;
+            var siteImpress4 = document.getElementById("survey-form-impress4").checked;
+            var siteImpress5 = document.getElementById("survey-form-impress5").checked;
+            var siteImpress6 = document.getElementById("survey-form-impress6").checked;
+            var siteImpress7 = document.getElementById("survey-form-impress7").checked;
+            var siteImpress8 = document.getElementById("survey-form-impress8").checked;
+            var siteImpress9 = document.getElementById("survey-form-impress9").checked;
+            var siteImpress10 = document.getElementById("survey-form-impress10").checked;
+            var siteImpress11 = document.getElementById("survey-form-impress11").checked;
+            var siteImpress12 = document.getElementById("survey-form-impress12").checked;
+            var targAudience = document.getElementById("site-target").value;
+            var siteImages = document.getElementById("site-images").value;
+            var colScheme = document.getElementById("site-scheme").value;
+            var needCommerce = document.querySelector('input[name="survey-form-commerce"]:checked').value;
+            var comp = document.getElementById("site-comp").value;
+            var fav = document.getElementById("site-favs").value;
+            var addComments = document.getElementById("site-comments").value;
+
+       
+
+
+            /* if (name == "" || phone == "" || email == "" || desc == "") {
+                alert("Please Fill All Required Field");
+                return false;
+            } */
+
+            nameRE = /^[A-Z]{1}[a-z]{2,20}[ ]{1}[A-Z]{1}[a-z]{2,20}/;
+            if (!nameRE.test(name)) {
+                alert("Name entered, is not valid");
+                return false;
+            }
+
+            phoneRE = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
+            if (!phoneRE.test(phone)) {
+                alert("Phone number entered, is not valid");
+                return false;
+            }
+
+            emailRE = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!emailRE.test(email)) {
+                alert("Email Address entered, is not valid");
+                return false;
+            }
+            var data = {
+                name: name,
+                phone: phone,
+                email: email,
+                siteObj: siteObj,
+                siteAddr: siteAddr,
+                deadline: deadline,
+                numberOfPages: numberOfPages,
+                haveLogo: haveLogo,
+                needHost: needHost,
+                currHost: currHost,
+                useExistSite: useExistSite,
+                siteImpress1: siteImpress1,
+                siteImpress2: siteImpress2,
+                siteImpress3: siteImpress3,
+                siteImpress4: siteImpress4,
+                siteImpress5: siteImpress5,
+                siteImpress6: siteImpress6,
+                siteImpress7: siteImpress7,
+                siteImpress8: siteImpress8,
+                siteImpress9: siteImpress9,
+                siteImpress10: siteImpress10,
+                siteImpress11: siteImpress11,
+                siteImpress12: siteImpress12,
+                targAudience: targAudience,
+                siteImages: siteImages,
+                colScheme: colScheme,
+                needCommerce: needCommerce,
+                comp: comp,
+                fav: fav,
+                addComments: addComments
+            };
+
+/*             $.ajax({
+         type: "POST",
+         url : "ttps://ocpix38lvl.execute-api.us-east-2.amazonaws.com/prod/survey-email",
+         dataType: "json",
+         crossDomain: "true",
+         contentType: "application/json; charset=utf-8",
+         data: JSON.stringify(data),
+
+         
+         success: function () {
+           // clear form and show a success message
+           alert("Successfull");
+           document.getElementById("survey-form").reset();
+       location.reload();
+         },
+         error: function () {
+           // show an error message
+           alert("UnSuccessfull");
+         }}); */
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "https://ocpix38lvl.execute-api.us-east-2.amazonaws.com/prod/survey-email");
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify(data));
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4) {
+                    var response = JSON.parse(xmlhttp.responseText);
+                    if (xmlhttp.status === 200) {
+                        console.log('successful');
+                        document.getElementById("survey-form").innerHTML = "<h1>Thank you for your message/feedback<br>our team will get back to you soon!</h1>";
+                    } else {
+                        console.log('failed');
+                    }
+                }
+            }
+
+            document.getElementById('survey-form').reset();
+
+        }
+    </script>
+
+    <title>Two 8 Designs Website Development Survey</title>
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./Resources/css/styles.css" type="text/css" rel="stylesheet">
+    <link href="https://code.jquery.com/jquery-3.1.1.min.js">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Varela&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a href="www.two8designs.com">TWO 8 DESIGNS</a>
+    </header>
+    <main id="main" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-lg-offset-3 col-lg-6">
+                <div class="m-b-md text-center">
+                    <h1 id="title">Website Design Survey Form</h1>
+                    <p id="description" class="description" class="text-center">This form will help Two 8 Designs put
+                        together a
+                        solution that best reflects you or your small business. Please fill out as much information as
+                        possible.</p>
+                </div>
+                <form method="POST" id="survey-form" name="survey-form">
+                    <fieldset>
+                        <label for="name" id="name-label">
+                            Name *
+                            <input class="" type="text" id="name" name="name" placeholder="Enter your name (required)"
+                                required />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="email" id="email-label">
+                            Email *
+                            <input class="" type="email" id="email" name="email"
+                                placeholder="Enter your email (required)" required />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="phone" id="phone-label">
+                            Phone Number *
+                            <input class="" type="phone" id="phone" name="phone" placeholder="Area Code - Phone Number"
+                                required />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-objective">
+                            What will this project/website be about? What is the objective?
+                            <textarea id="site-objective" maxlength="194"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-addr" id="site-addr-label">
+                            What is your current or intended website?
+                            <input class="" type="site-addr" id="site-addr" name="site-addr"
+                                placeholder="ex. www.example.com" required />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="deadline" id="deadline-label">
+                            How soon do you need the new site completed?
+                            <input class="" type="deadline" id="deadline" name="deadline" />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="pages" id="number-label">
+                            Approximately how many pages will you site have?
+                            <input class="" type="number" id="pages" name="pages" min="1" max="112" />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <div class="labels">
+                            Do you already have a logo or branded materials?
+                        </div>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-logo" value="Yes" checked /> Yes
+                        </label>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-logo" value="No" /> No
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <div class="labels">
+                            Do you need website hosting and email?
+                        </div>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-host" value="Yes" checked /> Yes
+                        </label>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-host" value="No" /> No
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="curr-host" id="curr-host-label">
+                            With whom do you currently host your website?
+                            <input class="" type="curr-host" id="curr-host" name="curr-host" />
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <div class="labels">
+                            Will the existing website be used?
+                        </div>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-ex_site" value="Yes" checked /> Yes
+                        </label>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-ex_site" value="No" /> No
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <div class="labels">
+                            How should vistors describe your new site? (Check all that apply):
+                        </div>
+                        <label for="survey-form-impress1" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress1" value="modern">
+                            Modern
+                        </label>
+                        <label for="survey-form-impress2" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress2" value="userFriendly">
+                            User Friendly
+                        </label>
+                        <label for="survey-form-impress3" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress3" value="bold">
+                            Bold
+                        </label>
+                        <label for="survey-form-impress4" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress4" value="corporate">
+                            Corporate
+                        </label>
+                        <label for="survey-form-impress5" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress5" value="fun">
+                            Fun
+                        </label>
+                        <label for="survey-form-impress6" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress6" value="foThinking">
+                            Forward Thinking
+                        </label>
+                        <label for="survey-form-impress7" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress7" value="innovative">
+                            Innovative
+                        </label>
+                        <label for="survey-form-impress8" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress8" value="bright">
+                            Bright
+                        </label>
+                        <label for="survey-form-impress9" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress9" value="calming">
+                            Calming
+                        </label>
+                        <label for="survey-form-impress10" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress10" value="elegant">
+                            Elegant
+                        </label>
+                        <label for="survey-form-impress11" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress11" value="clean">
+                            Clean
+                        </label>
+                        <label for="survey-form-impress12" class="m-b-xs">
+                            <input type="checkbox" id="survey-form-impress12" value="minimal">
+                            Minimal
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-target">
+                            Who is your target audience?
+                            <textarea id="site-target" maxlength="194"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-images">
+                            What kind of images best reflect your business? (Ex. business images, product images,
+                            industry, nature, etc.)
+                            <textarea id="site-images" maxlength="194"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-scheme">
+                            Do you have a color scheme? If not, what is your color preference?
+                            <textarea id="site-scheme" maxlength="194"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <div class="labels">
+                            Do you need E-Commerce?
+                        </div>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-commerce" value="Yes" checked /> Yes
+                        </label>
+                        <label class="m-b-xs">
+                            <input type="radio" name="survey-form-commerce" value="No" /> No
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-comp">
+                            Please list your competitors' websites. What do you like and not like about their websites?
+                            <textarea id="site-comp" maxlength="294"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-favs">
+                            Are there any particular websites that you like? Why? (Examples: page elements like headers,
+                            menus, sidebars, colors, typography, photos, etc.)
+                            <textarea id="site-favs" maxlength="294"></textarea>
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <label for="site-comments">
+                            Please add any additional comments
+                            <textarea id="site-comments" maxlength="294"></textarea>
+                        </label>
+                    </fieldset>
+
+                    <button id="submit" type="submit" class="btn" onClick="submitToAPI(event)">Submit the form</button>
+                </form>
+                <div class="copyright m-t-sm">
+                    <div>Created By <br>
+                        <a href="http://www.two8designs.com" title="two 8 Designs">TWO 8 DESIGNS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
