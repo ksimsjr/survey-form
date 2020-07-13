@@ -18,16 +18,21 @@
   outline: 0 !important;
 }
 
+.navbar-brand {
+  font-family: Varela, sans-serif;
+  font-size: 2.2em;
+  margin-left: 1.2em;
+  color: #FF6700;
+}
+
 header a {
   font-family: Varela, sans-serif;
   font-size: 4.2em;
   margin-left: 2.2em;
-  color: #FF6700;
-  -webkit-text-stroke: 1px #fdfdfd;
+  color: #333745;
 }
 
 body {
-  padding: 2% 0;
   background-color: #7C9082;
 }
 

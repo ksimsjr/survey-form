@@ -21,26 +21,33 @@ $blue:			#333745;
   margin-bottom: 10%;
 }
 .m-t-xs {
-  margin-top: 2%;
+ margin-top: 2%;
 }
 .m-t-sm {
-  margin-top: 5%;
+ margin-top: 5%;
 }
 
 // General
 * {
   outline: 0 !important;
 }
+
+.navbar-brand {
+    font-family: $tfont;
+    font-size: 2.2em;
+    margin-left: 1.2em;
+	color: $orange;
+}
+
 header a{
     font-family: $tfont;
     font-size: 4.2em;
     margin-left: 2.2em;
-	color: $orange;
-	-webkit-text-stroke: 1px rgb(253, 253, 253);
+	color: $blue;
+	//-webkit-text-stroke: 1px rgb(253, 253, 253);
 }
 
 body {
-  padding: 2% 0;
   background-color: $bg;
 }
 
