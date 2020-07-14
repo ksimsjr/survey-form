@@ -18,29 +18,33 @@
   outline: 0 !important;
 }
 
+.container-fluid {
+  background-color: #ADCAD6;
+}
+
 .navbar-brand {
   font-family: Varela, sans-serif;
   font-size: 2.2em;
-  margin-left: 1.2em;
+  margin-left: 2.2em;
   color: #FF6700;
 }
 
 header a {
   font-family: Varela, sans-serif;
-  font-size: 4.2em;
+  font-size: 6.2em;
   margin-left: 2.2em;
   color: #333745;
 }
 
 body {
-  background-color: #7C9082;
+  background-color: #56606F;
 }
 
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.2em;
   font-weight: 300;
-  color: #00FFC5;
+  color: #41BBD9;
   text-transform: uppercase;
 }
 
@@ -105,11 +109,11 @@ a:hover {
   border-bottom: 2px solid #FFF;
   font-size: 1.1em;
   font-weight: 300;
-  color: #00FFC5;
+  color: #41BBD9;
 }
 
 #survey-form input:focus {
-  border-color: #00FFC5;
+  border-color: #41BBD9;
 }
 
 #survey-form [type="checkbox"],
@@ -137,7 +141,7 @@ a:hover {
   width: 23px;
   -webkit-transition: all 0.15s ease-out 0s;
   transition: all 0.15s ease-out 0s;
-  background: #7C9082;
+  background: #56606F;
   color: #FFF;
   cursor: pointer;
   outline: none;
@@ -147,7 +151,7 @@ a:hover {
 
 #survey-form [type="checkbox"]:hover,
 #survey-form [type="radio"]:hover {
-  border-color: #00FFC5;
+  border-color: #41BBD9;
 }
 
 #survey-form [type="checkbox"]:checked:before,
@@ -163,7 +167,7 @@ a:hover {
   font-family: 'Glyphicons Halflings';
   line-height: 20px;
   font-size: 15px;
-  color: #00FFC5;
+  color: #41BBD9;
 }
 
 #survey-form [type="checkbox"]:focus,
@@ -194,9 +198,9 @@ a:hover {
 #survey-form select {
   height: 40px;
   padding-left: 5px;
-  background-color: #7C9082;
+  background-color: #56606F;
   border: 2px solid #FFF;
-  color: #00FFC5;
+  color: #41BBD9;
 }
 
 #survey-form select option {
@@ -206,7 +210,7 @@ a:hover {
 }
 
 #survey-form select option:hover {
-  background-color: #00FFC5;
+  background-color: #41BBD9;
 }
 
 #survey-form textarea {
@@ -215,8 +219,8 @@ a:hover {
   padding: 10px 10px 0px 20px;
   width: 100%;
   height: 90px;
-  color: #00FFC5;
-  background-color: #7C9082;
+  color: #41BBD9;
+  background-color: #56606F;
   border: 2px solid #FFF;
 }
 
@@ -229,11 +233,11 @@ a:hover {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  border: 3px solid #85FFC7;
+  border: 3px solid #41BBD9;
   border-radius: 0;
   font-weight: 500;
   font-size: 1.2em;
-  color: #00FFC5;
+  color: #41BBD9;
   text-align: center;
   background: none;
   -webkit-transition: color 0.25s ease;
@@ -247,7 +251,7 @@ a:hover {
   left: 0;
   width: 0;
   height: 100%;
-  background-color: #00FFC5;
+  background-color: #41BBD9;
   -webkit-transform-origin: left;
           transform-origin: left;
   -webkit-transition: width 0.5s ease;
@@ -256,7 +260,7 @@ a:hover {
 }
 
 #survey-form .btn:hover {
-  color: #7C9082;
+  color: #56606F;
 }
 
 #survey-form .btn:hover:after {
